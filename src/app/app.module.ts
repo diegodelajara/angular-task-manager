@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
@@ -13,7 +12,6 @@ import { TaskService } from './services/task.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     MatButtonModule,
     MatSnackBarModule
   ],
