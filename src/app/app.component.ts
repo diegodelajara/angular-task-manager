@@ -1,9 +1,11 @@
-import { Component, NgModule, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { TaskService } from './services/task.service';
 import {MatTableModule} from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -17,7 +19,7 @@ interface Task {
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [MatTableModule],
+  imports: [MatTableModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule],
 })
 
 export class AppComponent implements OnInit {
@@ -32,9 +34,9 @@ export class AppComponent implements OnInit {
     private snackBar: MatSnackBar
   ) {
     this.taskForm = this.fb.group({
-      name: [''],
-      description: [''],
-      status: ['Pendiente']
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      description: ['', [Validators.required, Validators.minLength(3)]],
+      status: ['Pendiente', [Validators.required, Validators.minLength(3)]]
     });
   }
 
@@ -53,6 +55,7 @@ export class AppComponent implements OnInit {
   }
 
   addTask(): void {
+
     const newTask: Task = this.taskForm.value;
     this.tasks.data = [...this.tasks.data, newTask];
     this.taskForm.reset({ status: 'Pendiente' });

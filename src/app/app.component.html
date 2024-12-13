@@ -1,49 +1,54 @@
 <div class="container">
-  <!-- <form [formGroup]="taskForm" (ngSubmit)="addTask()">
-    <mat-form-field>
-      <mat-label>Task Name</mat-label>
-      <input matInput formControlName="name">
-    </mat-form-field>
+  <div class="form">
+    <form [formGroup]="taskForm" (ngSubmit)="addTask()">
+      <mat-form-field>
+        <mat-label>Nombre tarea</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Description</mat-label>
-      <input matInput formControlName="description">
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Descripción</mat-label>
+        <input matInput formControlName="description">
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Status</mat-label>
-      <input matInput formControlName="status">
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Estado</mat-label>
+        <input matInput formControlName="status">
+      </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">Add Task</button>
-  </form> -->
+      <button mat-raised-button color="primary" type="submit">Add Task</button>
+    </form>
+  </div>
 
-  <table mat-table [dataSource]="tasks" class="mat-elevation-z8">
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
-      <td mat-cell *matCellDef="let task">{{ task.name }}</td>
-    </ng-container>
+  <div class="table">
 
-    <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef>Description</th>
-      <td mat-cell *matCellDef="let task">{{ task.description }}</td>
-    </ng-container>
+    <table mat-table [dataSource]="tasks" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let task">{{ task.name }}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef>Status</th>
-      <td mat-cell *matCellDef="let task">{{ task.status }}</td>
-    </ng-container>
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let task">{{ task.description }}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef>Actions</th>
-      <td mat-cell *matCellDef="let task; let i = index">
-        <button mat-button color="warn" (click)="removeTask(i)">Delete</button>
-      </td>
-    </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Estado</th>
+        <td mat-cell *matCellDef="let task">{{ task.status }}</td>
+      </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let task; let i = index">
+          <button mat-button color="warn" (click)="removeTask(i)">Delete</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
 </div>
 
 

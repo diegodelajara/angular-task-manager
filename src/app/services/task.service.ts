@@ -11,12 +11,12 @@ export class TaskService {
   getTaskStream(): Observable<{ name: string; description: string; status: string }> {
     return interval(5000).pipe(
       map(() => ({
-        name: `Task ${this.taskIndex++}`,
-        description: 'Auto-generated task',
+        name: `Tarea ${this.taskIndex++}`,
+        description: 'Tarea auto-generada',
         status: 'Pendiente'
       })),
       catchError(() => {
-        throw new Error('Error emitting tasks');
+        throw new Error('Error al crear tarea');
       })
     );
   }
