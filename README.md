@@ -23,3 +23,7 @@ To run all unit test you need to execute this:
 ```bash
 ng test
 ```
+
+## Dale estilo a tus commits
+
+https://gitmoji.dev/

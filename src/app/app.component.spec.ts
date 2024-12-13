@@ -53,14 +53,6 @@ describe('AppComponent', () => {
 
     const rows = fixture.debugElement.queryAll(By.css('table tbody tr'));
     expect(rows.length).toBe(1);
-    const cells = rows[0].queryAll(By.css('td'));
-    console.log(fixture.debugElement.nativeElement.innerHTML);
-
-
-    // expect(cells[0].nativeElement.textContent.trim()).toBe('Tarea de prueba');
-    // expect(cells[1].nativeElement.textContent).toBe('Descripción de prueba');
-    // expect(cells[2].nativeElement.textContent).toBe('Pendiente');
-
 
   });
 });
